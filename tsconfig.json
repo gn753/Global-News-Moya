@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "skipLibCheck": true,
+    "types": ["node"],
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types",
+      "src/types/index.d.ts",
+      "src/styles/emotion.d.ts"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "paths": {
+      "@src/*": ["src/*"],
+      "@public/*": ["public/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
