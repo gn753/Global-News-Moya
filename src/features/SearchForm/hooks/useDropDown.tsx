@@ -1,18 +1,26 @@
 import { useRef } from "react";
 import { useCallback, useEffect, useState } from "react";
+
+interface NewsUrlPrameter {
+  mediaType?: string | null | undefined;
+  timeFilter?: string | null | undefined;
+  languages?: string | null | undefined;
+  orderBy?: string | null | undefined;
+}
+
 export const useDropDown = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const [mediaType, setMediaType] = useState<any>({
+  const [mediaType, setMediaType] = useState<NewsUrlPrameter>({
     mediaType: null,
   });
-  const [timeFilter, setTimeFilter] = useState<any>({
+  const [timeFilter, setTimeFilter] = useState<NewsUrlPrameter>({
     timeFilter: null,
   });
-  const [languages, setLanguages] = useState<any>({
+  const [languages, setLanguages] = useState<NewsUrlPrameter>({
     languages: null,
   });
-  const [orderBy, setOrderBy] = useState<any>({
+  const [orderBy, setOrderBy] = useState<NewsUrlPrameter>({
     orderBy: null,
   });
   // const { mediaType, timeFilter, languages, orderBy } = dropState;

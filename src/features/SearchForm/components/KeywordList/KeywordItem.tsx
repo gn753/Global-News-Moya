@@ -1,29 +1,18 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useGetNewsQuery } from "@src/features/SearchForm/hooks/useGetNewsQuery";
-import { useSearchBar } from "@src/features/SearchForm/hooks/useSearchbar";
 
 interface Props {
-  children: string;
-  paramValue: string;
-  exchange?: string;
+  children: React.ReactChild;
+  params: {
+    paramValue: string | null | undefined;
+    exchange?: string | null | undefined;
+  };
+  keyType: string | null | undefined;
 }
 
-export default function KeywordItem({ children, props, keyType }: any) {
-  const [skip, setSkip] = useState<boolean>(true);
+export default function KeywordItem({ children, params, keyType }: Props) {
   const { getKeywordParams, setIsActive } = useGetNewsQuery();
-  const navigate = useNavigate();
-  const { paramValue, exchange } = props;
-  const { setIsOpen } = useSearchBar();
-  // function moveNewsPage() {
-  //   console.log(keyType, paramValue);
-
-  //   var id = new URLSearchParams();
-  //   id.append("keyType", keyType);
-  //   id.append("paramValue", paramValue);
-  //   navigate(`/news?${id}`);
-  // }
+  const { paramValue, exchange } = params;
 
   return (
     <div onClick={() => setIsActive(true)}>

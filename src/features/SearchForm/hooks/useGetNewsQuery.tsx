@@ -4,16 +4,18 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 
-type State = {
-  mediaType: string;
-  timeFilter: string;
-  orderBy: string;
-};
+interface State {
+  keyType: string | null | undefined;
+  paramValue: string | null | undefined;
+  exchange?: string | null | undefined;
+}
+
 export const useGetNewsQuery = () => {
   // 뉴스 옵션 선택
-  const [keywordQuery, setKeywordQuery] = useState<any>({
+  const [keywordQuery, setKeywordQuery] = useState<State>({
     keyType: null,
     paramValue: null,
+    exchange: null,
   });
   const [isActive, setIsActive] = useState<boolean>(false);
   const { keyType, paramValue, exchange } = keywordQuery;
@@ -22,7 +24,7 @@ export const useGetNewsQuery = () => {
   //미디어 타입 가져오기
   const { mediaType, languages, timeFilter, orderBy } = params;
   // 받은 Query, parameter로 해당 page 이동
-  const getKeywordParams = ({ keyType, paramValue }: any) => {
+  const getKeywordParams = ({ keyType, paramValue }: State) => {
     setKeywordQuery({
       keyType,
       paramValue,

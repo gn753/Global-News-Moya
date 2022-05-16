@@ -3,7 +3,7 @@ import { useGetNewsQuery } from "@src/features/SearchForm/hooks/useGetNewsQuery"
 
 
 interface Props {
-  children: any;
+  children: React.ReactChildren;
   props: {
     paramValue: string;
     exchange: string;

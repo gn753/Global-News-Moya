@@ -1,11 +1,4 @@
-// import ModalDropDown from "./dropDown/modalDropDown";
-
 import styled from "@emotion/styled";
-// import AlignmentDropDown from "./dropDown/alignmentDropDown";
-// import Grid from "./Icon/grid";
-// import HamBurger from "./Icon/hamburger";
-// import BookMarkIcon from "./Icon/bookmark/BookMarkIcon";
-// import Share from "./Icon/share";
 
 const StyleGuide = () => {
   const optionList = [
@@ -63,45 +56,6 @@ const StyleGuide = () => {
           <p className="button-1">Button 1/ Noto sans/ Display Medium/ 20px</p>
           <p className="button-2">Button 2/ Noto sans/ Display Regular/ 16px</p>
         </Typography>
-        {/* <UiComponent>
-          <p className="UiComponent-title">DropDown</p>
-          <Drop>
-            <div>
-              <p className="UiComponent-sub-title">Modal</p>
-              <ModalDropDown>
-                <li className="dropdown-item">마이페이지</li>
-                <li className="dropdown-item">프로필</li>
-                <li className="dropdown-item">로그아웃</li>
-              </ModalDropDown>
-            </div>
-            <div>
-              <p className="UiComponent-sub-title">Alignment</p>
-              <AlignmentDropDown
-                currentOption="정렬순"
-                optionList={optionList}
-              ></AlignmentDropDown>
-            </div>
-          </Drop>
-          <p className="title">Icon</p>
-          <Icon>
-            <div>
-              <p className="UiComponent-sub-title">Grid</p>
-              <Grid />
-            </div>
-            <div>
-              <p className="UiComponent-sub-title">BookMark</p>
-              <BookMarkIcon />
-            </div>
-            <div>
-              <p className="UiComponent-sub-title">HamBurger</p>
-              <HamBurger />
-            </div>
-            <div>
-              <p className="UiComponent-sub-title">Share</p>
-              <Share />
-            </div>
-          </Icon>
-        </UiComponent> */}
       </Container1240>
     </Style>
   );
@@ -189,28 +143,6 @@ const ColorPalette = styled.section`
     &.MyKeyword {
       background-color: var(--color-mykeyword);
     }
-    /* background-color: var(--main-color);
-    &.BlueGreenColor {
-      background-color: var(--blue-green-color);
-    }
-    &.TextDefault {
-      background-color: var(--text-default-color);
-    }
-    &.NewsTitle {
-      background-color: var(--news-title-color);
-    }
-    &.SubTitle {
-      background-color: var(--sub-title-color);
-    }
-    &.Overline {
-      background-color: var(--over-line-color);
-    }
-    &.NewsDescription {
-      background-color: var(--news-desciption-color);
-    }
-    &.MyKeyword {
-      background-color: var(--my-keyword-color);
-    } */
   }
   .primaryColor {
   }
@@ -335,15 +267,4 @@ const UiComponent = styled.section`
     line-height: 20px;
     margin-bottom: 1rem !important;
   }
-`;
-const Drop = styled.section`
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 3rem !important;
-`;
-const Icon = styled.section`
-  display: flex;
-  gap: 0 20px;
-  margin-bottom: 3rem !important;
 `;

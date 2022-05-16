@@ -45,7 +45,7 @@ export default function NewsList() {
   const handleTextCardListView = () => {
     setIsView(false);
   };
-
+  console.log(data, "타입확인");
   return (
     <Container maxWidth="lg">
       <div css={styles.wrap}>

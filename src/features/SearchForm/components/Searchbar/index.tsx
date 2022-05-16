@@ -4,12 +4,12 @@ import { css } from "@emotion/react";
 import DropDownList from "@src/features/SearchForm/components/DropDown/DropDownList";
 
 interface Props {
-  handleKeywordOpen:()=>void
+  handleKeywordOpen: () => void;
 }
 
-function Searchbar({ handleKeywordOpen }:Props) {
+function Searchbar({ handleKeywordOpen }: Props) {
   return (
-    <>   
+    <>
       <KeywordListClose>
         <span onClick={handleKeywordOpen}>맞춤뉴스 보기</span>
       </KeywordListClose>
@@ -17,7 +17,7 @@ function Searchbar({ handleKeywordOpen }:Props) {
         <DropDownList />
         <div css={styles.Input}>
           <i className="search-icon">검색 아이콘</i>
-          <input placeholder="AAPL, MSFT, 005930, Gold, Oil, DJIA, Nikkei eg... " />
+          <input placeholder="AutoComplete기능은 개발중" />
         </div>
       </Form>
     </>
@@ -85,7 +85,7 @@ const KeywordListClose = styled.div`
     text-decoration: none;
     border-radius: 16px;
     cursor: pointer;
-    color:#707070;
+    color: #707070;
     transition: 0.3s;
     &:hover {
       background-color: #fff;

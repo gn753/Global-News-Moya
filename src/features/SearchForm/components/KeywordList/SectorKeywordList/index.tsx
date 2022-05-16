@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { css } from "@emotion/react";
 import SecotrKeywordItem from "@src/features/SearchForm/components/KeywordList/SectorKeywordList/SectorKeywordItem";
 import Grid from "@mui/material/Grid";
@@ -18,7 +18,7 @@ interface Props {
     tickers: object[];
     topics: object[];
   };
-  currentTab: any;
+  currentTab: string;
 }
 
 export default function SectorsKeywordList({
@@ -31,8 +31,9 @@ export default function SectorsKeywordList({
   const handleSectorTabUiChange = (index: number) => {
     setActiveIndex(index);
   };
-  const handleSectorTabChange = (event: any) => {
-    setSectorCurrentTab(event.target.innerHTML);
+  const handleSectorTabChange = (event: React.SyntheticEvent) => {
+    let target = event.target as HTMLDivElement;
+    setSectorCurrentTab(target.innerHTML);
   };
 
   const tabListInSectors = useMemo(() => {
@@ -67,7 +68,12 @@ export default function SectorsKeywordList({
                       keywordFirstName.name[0] === sectorCurrentTab
                   )
                   .map((filteredKeyword: any, index: number) => (
-                    <Grid item xs={4} css={styles.keywordList}>
+                    <Grid
+                      item
+                      xs={4}
+                      css={styles.keywordList}
+                      key={`SectorsGrid-${index}-${filteredKeyword}`}
+                    >
                       <SecotrKeywordItem
                         key={`{sectors}-${index}-${filteredKeyword}`}
                         keyType={currentTab}

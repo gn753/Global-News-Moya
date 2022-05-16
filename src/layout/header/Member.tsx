@@ -1,7 +1,6 @@
-
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-// import ModalDropDown from "../../dropDown/modalDropDown";
+import Modal from "@src/features/common/DropDown/components/Modal";
 
 const Member = () => {
   return (
@@ -11,7 +10,7 @@ const Member = () => {
         <Profile>
           <i className="profile-icon"></i>
           <span className="user-name">회원님</span>
-          <ModalDropDown>
+          <Modal>
             <li className="dropdown-item">
               <Link to="/mypage">마이페이지</Link>
             </li>
@@ -21,7 +20,7 @@ const Member = () => {
             <li className="dropdown-item">
               <Link to="/">로그아웃</Link>
             </li>
-          </ModalDropDown>
+          </Modal>
         </Profile>
       </Wrap>
     </>

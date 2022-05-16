@@ -1,25 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import axios from "axios";
 
-interface State {
-  newsTitle: string;
-  newsDescription: string;
-}
 
 export function useNewsCardTranslate() {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // const { newsTitle, newsDescription } = translateText;
 
   const handleActiveTransLate = () => {
     setIsActive(!isActive);
   };
 
-  // const updateTranslateText = ({ newsTitle, newsDescription }: State) => {
-  //   setTranslateText({ newsTitle, newsDescription });
-  // };
 
-  const postTranslateAxios = async ([title,description]: any) => {
+  const postTranslateAxios = async ([title,description]: string[]) => {
     const TranslateAxiosBody = {
       token: "sysmetic1234",
       targetLists: [title, description],

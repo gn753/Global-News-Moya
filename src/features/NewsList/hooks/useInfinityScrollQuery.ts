@@ -15,7 +15,10 @@ export const useInfinityScrollQuery = ({
   const baseUrl = "/api/search";
   const getNewsListAsync = async ({ pageParam = undefined }) => {
     console.log(pageParam, "페이지체크");
-    const resopnse = await api.get(`${baseUrl}/${keyType}/${paramValue}`, {
+    const resopnse: {
+      pageParams: object[];
+      pages: object[];
+    } = await api.get(`${baseUrl}/${keyType}/${paramValue}`, {
       params: {
         mediaType: mediaType,
         languages: languages,

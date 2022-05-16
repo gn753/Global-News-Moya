@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useMutation } from "react-query";
-
+interface Prameter {
+  title: string;
+  description: string;
+}
 export function useTranslateMutation() {
   const { mutate, isLoading, isSuccess, data } = useMutation(
     "translate",
     handleTransLate
   );
-  async function handleTransLate({ title, description }: any) {
+
+  async function handleTransLate({ title, description }: Prameter) {
     const TranslateAxiosBody = {
       token: "sysmetic1234",
       targetLists: [title, description],

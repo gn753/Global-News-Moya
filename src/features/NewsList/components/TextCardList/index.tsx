@@ -1,5 +1,7 @@
 import TextCard from "@src/features/NewsList/components/TextCardList/TextCard";
 import React from "react";
+
+
 function TextCardList({ data }: any) {
   return (
     <>

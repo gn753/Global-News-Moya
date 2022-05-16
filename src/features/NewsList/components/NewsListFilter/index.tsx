@@ -28,12 +28,12 @@ export default function NewsListFilter({
     exchange: "",
   });
 
-  type Query = any;
+  type Query = string | null | undefined;
   const keyType: Query = searchParams.get("keyType");
   const paramValue: Query = searchParams.get("paramValue");
   const exchange: Query = searchParams.get("orderBy");
 
-  const handleOrderByUpdate = async (event: SelectChangeEvent) => {
+  const handleListOrderByChange = async (event: SelectChangeEvent) => {
     setParams({ ...params, orderBy: event.target.value }); // select 박스 내 텍스트 교체
 
     setSearchParams({
@@ -56,7 +56,7 @@ export default function NewsListFilter({
               id="demo-simple-select"
               value={params.orderBy}
               label="정렬"
-              onChange={handleOrderByUpdate}
+              onChange={handleListOrderByChange}
             >
               {orderByParameters.map((orderBy) => {
                 return (
@@ -70,20 +70,20 @@ export default function NewsListFilter({
               })}
             </Select>
           </FormControl>
-          <ImageFormatViewBtn role="button" onClick={handleImageCardListView}>
+          <ShowImageCard role="button" onClick={handleImageCardListView}>
             <HambugerIcon
               onClick={() => setIsActive(true)}
               role="button"
               iconActive={isActive}
             />
-          </ImageFormatViewBtn>
-          <TextFormatViewBtn role="button" onClick={handleTextCardListView}>
+          </ShowImageCard>
+          <ShowTextCard role="button" onClick={handleTextCardListView}>
             <GridIcon
               onClick={() => setIsActive(false)}
               role="button"
               iconActive={isActive}
             ></GridIcon>
-          </TextFormatViewBtn>
+          </ShowTextCard>
         </div>
       </Container>
     </section>
@@ -140,7 +140,7 @@ type CssProps = {
   iconActive: boolean;
 };
 
-const ImageFormatViewBtn = styled.div``;
+const ShowImageCard = styled.div``;
 const HambugerIcon = styled.i<CssProps>`
   display: block;
   width: 40px;
@@ -169,4 +169,4 @@ const GridIcon = styled.i<CssProps>`
     no-repeat 4.5%;
 `;
 
-const TextFormatViewBtn = styled.div``;
+const ShowTextCard = styled.div``;
