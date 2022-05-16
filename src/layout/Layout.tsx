@@ -7,7 +7,7 @@ interface AuxProps {
   children: ReactChild | ReactChildren;
 }
 
-export const Layout: React.FC<AuxProps> = (props: any) => {
+export const Layout: React.FC<AuxProps> = (props: AuxProps) => {
   // const location = useLocation<LocationTypes>();
   // const path = location.pathname.slice(1);
 

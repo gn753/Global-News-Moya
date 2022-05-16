@@ -50,7 +50,7 @@ const button = css`
   border: none;
   color: #fff;
   margin-bottom: 145px;
-  background: #144056;
+  background-color: var(--color-bluegreen);
 `;
 
 // background: ${({ theme }) => theme.blueGreenColor}

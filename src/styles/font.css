@@ -1,0 +1,73 @@
+.h1 {
+  font-family: Noto Sans;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 64px;
+}
+.h2 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+}
+.h3 {
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.h4 {
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 36px;
+}
+.h5 {
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+.body-1 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+}
+.body-2 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.body-3 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 30px;
+}
+.body-4 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
+.button-1 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+}
+.button-2 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}

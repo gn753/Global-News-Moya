@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Member from "./Member";
 import NonMember from "./NonMember";
 import { css } from "@emotion/react";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 
 const Header = () => {
   return (
@@ -23,7 +23,7 @@ export default Header;
 
 const styles = {
   sticky: css`
-    position: fixed;
+    position: sticky;
     top: 0;
     right: 0;
     left: 0;

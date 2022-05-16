@@ -1,6 +1,5 @@
 import { Theme, ThemeOptions } from "@mui/material/styles";
-import "@emotion/react";
-import { LibTheme } from "some-lib";
+
 
 declare module "*.svg" {
   const content: any;
@@ -13,4 +12,17 @@ declare module "*.css" {
   }
   const classNames: IClassNames;
   export = classNames;
+}
+declare module "@mui/material/styles" {
+  interface Theme {
+    status: {
+      danger:string;
+    };
+  }
+  // allow configuration using `createTheme`
+  interface ThemeOptions {
+    status?: {
+      danger?: string;
+    };
+  }
 }

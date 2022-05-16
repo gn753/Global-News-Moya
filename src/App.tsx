@@ -1,15 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "@src/components/common/util/ScrollToTop";
+import ScrollToTop from "@src/features/common/util/ScrollToTop";
 import { Layout } from "@src/layout/Layout";
 import LoginPage from "@src/pages/LoginPage";
 import HomePage from "@src/pages/HomePage";
 import NewsPage from "@src/pages/NewsPage/index";
-import "./index.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import StyleGuide from "@src/pages/StyleGuide";
+import "./styles/variable.css";
+import "./styles/font.css";
 
 const App = () => {
   return (
@@ -22,6 +24,7 @@ const App = () => {
           <Route path="/news" element={<NewsPage />}>
             <Route path=":id" element={<NewsPage />} />
           </Route>
+          <Route path="/style" element={<StyleGuide />} />
           <Route path="/card" element={<Example />} />
         </Routes>
       </Layout>

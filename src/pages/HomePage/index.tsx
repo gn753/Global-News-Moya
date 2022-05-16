@@ -1,5 +1,5 @@
 import Intro from "@src/pages/HomePage/Intro";
-import SearchForm from "@src/components/SearchForm";
+import SearchForm from "@src/features/SearchForm";
 import { css } from "@emotion/react";
 import { Container } from "@mui/material";
 

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { Container } from '@mui/material';
+import { Container } from "@mui/material";
 
 export default function NewsTabList() {
   return (
@@ -26,7 +26,7 @@ const styles = {
     margin: auto;
   `,
   tabItem: css`
-    background: #48c0b7;
+    background-color: var(--color-main);
     border-radius: 5px 0px 0px 0px;
     cursor: pointer;
   `,

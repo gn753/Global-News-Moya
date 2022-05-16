@@ -29,7 +29,7 @@ const Form = styled.form`
     width: 40px;
     height: 40px;
     transform: translateY(-50%);
-    background: #48c0b7;
+    background-color: var(--color-main);
     background-image: url("/images/icon-serach-wh.svg");
     background-repeat: no-repeat;
     background-size: 20px 20px;

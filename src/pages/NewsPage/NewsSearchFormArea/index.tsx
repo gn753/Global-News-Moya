@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
-import SearchForm from "@src/components/SearchForm";
+import SearchForm from "@src/features/SearchForm";
 import NewsTabList from "@src/pages/NewsPage/NewsTabList";
-import { useEffect, useState,useCallback} from "react";
-
+import { useEffect, useState, useCallback } from "react";
 
 export default function NewsSearchFormArea() {
   const [scrolled, setScrolled] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (!scrolled && window.scrollY > 390) {
