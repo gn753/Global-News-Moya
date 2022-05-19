@@ -2,10 +2,11 @@ import KeywordItem from "@src/features/SearchForm/components/KeywordList/Keyword
 import SectorsKeywordList from "@src/features/SearchForm/components/KeywordList/SectorKeywordList";
 import Grid from "@mui/material/Grid";
 import { css } from "@emotion/react";
+import { useState } from "react";
 
 interface Props {
   keywordListSorted: any;
-  currentTab: "category" | "sectors" | "startup";
+  listView: "category" | "sectors" | "startup";
 }
 
 type NewsSearchParameter = {
@@ -14,20 +15,24 @@ type NewsSearchParameter = {
   exchange?: string | null | undefined;
 };
 
+interface TabState {
+  currentTab: "category" | "sectors" | "startup";
+}
+
 export default function KeywordListView({
   keywordListSorted,
-  currentTab,
+  listView,
 }: Props) {
   return (
     <section css={wrap}>
       <Grid container spacing={1}>
-        {currentTab === "category" &&
+        {listView === "category" &&
           keywordListSorted.category.map(
             (category: NewsSearchParameter, index: number) => (
               <Grid item xs={3} key={`categoryGrid-${index}`}>
                 <KeywordItem
                   key={`{category}-${index}`}
-                  keyType={currentTab}
+                  keyType={listView}
                   params={category}
                 >
                   {category.name}
@@ -37,17 +42,17 @@ export default function KeywordListView({
           )}
       </Grid>
       <SectorsKeywordList
-        currentTab={currentTab}
+        listView={listView}
         keywordListSorted={keywordListSorted}
       />
       <Grid container spacing={1}>
-        {currentTab === "startup" &&
+        {listView === "startup" &&
           keywordListSorted.startup.map(
             (startup: NewsSearchParameter, index: number) => (
               <Grid item xs={3} key={`startupGrid-${index}`}>
                 <KeywordItem
                   key={`{sectors}-${index}`}
-                  keyType={currentTab}
+                  keyType={listView}
                   params={startup}
                 >
                   {startup.name}

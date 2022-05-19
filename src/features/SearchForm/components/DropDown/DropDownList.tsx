@@ -12,9 +12,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import Grid from '@mui/material/Grid';
-
-
+import Grid from "@mui/material/Grid";
 
 export const searchParamsState = atom({
   key: "searchParamsState",
@@ -29,34 +27,31 @@ export const searchParamsState = atom({
 export default function DropDownList() {
   const [params, setParams] = useRecoilState(searchParamsState);
 
-  const handleMediaytype = (event: SelectChangeEvent) => {
+  const getMediaytype = (event: SelectChangeEvent) => {
     setParams({ ...params, mediaType: event.target.value });
   };
 
-  const handleTimeFilter = (event: SelectChangeEvent) => {
+  const getTimeFilter = (event: SelectChangeEvent) => {
     setParams({ ...params, timeFilter: event.target.value });
   };
-  const handlelanguages = (event: SelectChangeEvent) => {
+  const getlanguages = (event: SelectChangeEvent) => {
     setParams({ ...params, languages: event.target.value });
   };
-  const handleOrderBy = (event: SelectChangeEvent) => {
+  const getOrderBy = (event: SelectChangeEvent) => {
     setParams({ ...params, orderBy: event.target.value });
   };
 
   return (
-
-      <Grid 
-        css={styles.wrap}
-       container spacing={1} >
-         <Grid item xs={3}>
-         <FormControl  >
+    <Grid css={styles.wrap} container spacing={1}>
+      <Grid item xs={3}>
+        <FormControl>
           <InputLabel id="demo-simple-select-label">언론사</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={params.mediaType}
             label="언론사"
-            onChange={handleMediaytype}
+            onChange={getMediaytype}
           >
             {categoriesParameters.map((category, index: number) => {
               return (
@@ -70,15 +65,17 @@ export default function DropDownList() {
             })}
           </Select>
         </FormControl>
-         </Grid>
-        <Grid item xs={3}>        <FormControl >
+      </Grid>
+      <Grid item xs={3}>
+        {" "}
+        <FormControl>
           <InputLabel id="demo-simple-select-label">발행일</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={params.timeFilter}
             label="언어"
-            onChange={handleTimeFilter}
+            onChange={getTimeFilter}
           >
             {timeFiltereParameters.map((timeFilter) => {
               return (
@@ -91,15 +88,17 @@ export default function DropDownList() {
               );
             })}
           </Select>
-        </FormControl></Grid>
-        <Grid item xs={3}>        <FormControl >
+        </FormControl>
+      </Grid>
+      <Grid item xs={3}>
+        <FormControl>
           <InputLabel id="demo-simple-select-label">언어</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={params.languages}
             label="언어"
-            onChange={handlelanguages}
+            onChange={getlanguages}
           >
             {languageParameters.map((languages) => {
               return (
@@ -112,15 +111,18 @@ export default function DropDownList() {
               );
             })}
           </Select>
-        </FormControl></Grid>
-        <Grid item xs={3}>       <FormControl >
+        </FormControl>
+      </Grid>
+      <Grid item xs={3}>
+        {" "}
+        <FormControl>
           <InputLabel id="demo-simple-select-label">정렬</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={params.orderBy}
             label="정렬"
-            onChange={handleOrderBy}
+            onChange={getOrderBy}
           >
             {orderByParameters.map((orderBy) => {
               return (
@@ -133,10 +135,9 @@ export default function DropDownList() {
               );
             })}
           </Select>
-        </FormControl></Grid>
- 
+        </FormControl>
       </Grid>
-  
+    </Grid>
   );
 }
 
@@ -149,19 +150,19 @@ const DropContainer = styled.div`
 `;
 
 const styles = {
-  wrap:css`
+  wrap: css`
     width: 750px;
     height: 120px;
     align-items: center;
     margin-left: 10px;
-    margin-right:10px;
+    margin-right: 10px;
     & > div > {
       width: 100%;
     }
-    .MuiGrid-item{
-      .MuiFormControl-root{
+    .MuiGrid-item {
+      .MuiFormControl-root {
         width: 100%;
       }
     }
-  `
-}
+  `,
+};

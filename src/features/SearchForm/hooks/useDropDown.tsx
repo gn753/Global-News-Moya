@@ -59,7 +59,6 @@ export const useDropDown = () => {
   const area = useRef<HTMLDivElement>(null);
   const openDropDown = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
   const closeClickOutside = (event: any) => {
     if (area.current && !area.current.contains(event.target)) setIsOpen(false);

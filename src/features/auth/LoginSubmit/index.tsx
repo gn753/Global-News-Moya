@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "react-query";
 import api from "@src/app/Api";
 import { Link, useNavigate } from "react-router-dom";
-import Spinner from "@src/features/Spinner";
+import Spinner from "@src/features/common/Spinner";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 

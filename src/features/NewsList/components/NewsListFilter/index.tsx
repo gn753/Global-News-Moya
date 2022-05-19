@@ -20,29 +20,28 @@ export default function NewsListFilter({
   handleImageCardListView,
   handleTextCardListView,
 }: Props) {
-  const [params, setParams] = useRecoilState(searchParamsState);
   const [isActive, setIsActive] = useState<boolean>(true);
-  const [searchParams, setSearchParams] = useSearchParams({
+  const [params, setParams] = useRecoilState(searchParamsState);
+  const [searchQuery, setSearchQuery] = useSearchParams({
     keyType: "",
     paramValue: "",
     exchange: "",
   });
-
   type Query = string | null | undefined;
-  const keyType: Query = searchParams.get("keyType");
-  const paramValue: Query = searchParams.get("paramValue");
-  const exchange: Query = searchParams.get("orderBy");
+  const keyType: Query = searchQuery.get("keyType");
+  const paramValue: Query = searchQuery.get("paramValue");
+  const exchange: Query = searchQuery.get("orderBy");
 
-  const handleListOrderByChange = async (event: SelectChangeEvent) => {
-    setParams({ ...params, orderBy: event.target.value }); // select 박스 내 텍스트 교체
-
-    setSearchParams({
+  const updateOrderBy = async (event: SelectChangeEvent) => {
+    setSearchQuery({
       keyType,
       paramValue,
       exchange,
       ...params,
       orderBy: event.target.value,
-    }); // URL query 교체
+    }); // 검색 주제
+
+    setParams({ ...params, orderBy: event.target.value }); //Recoil에게 Parmas상태를 전달
   };
 
   return (
@@ -56,7 +55,7 @@ export default function NewsListFilter({
               id="demo-simple-select"
               value={params.orderBy}
               label="정렬"
-              onChange={handleListOrderByChange}
+              onChange={updateOrderBy}
             >
               {orderByParameters.map((orderBy) => {
                 return (

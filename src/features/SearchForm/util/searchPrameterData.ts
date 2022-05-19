@@ -24,14 +24,6 @@ export const languageParameters = [
     name: "영어",
     parameter: "en",
   },
-  {
-    name: "일본어",
-    parameter: "ja",
-  },
-  {
-    name: "한국어",
-    parameter: "ko",
-  },
 ];
 export const orderByParameters = [
   {

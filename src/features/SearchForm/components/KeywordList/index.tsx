@@ -1,33 +1,24 @@
 import styled from "@emotion/styled";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import KeywordListView from "@src/features/SearchForm/components/KeywordList/KeywordListView";
+import { MasterApiNewsKeywodList } from "@src/features/SearchForm/types/typeSearchForm";
+import { useKeywordList } from "@src/features/SearchForm/hooks/useKeywordList";
 
 type TabState = "category" | "sectors" | "startup";
 
-function KeywordList({ data }: any) {
+function KeywordList({ data }: MasterApiNewsKeywodList) {
   const [currentTab, setCurrentTab] = useState<TabState>("category");
+  const [listView, setListView] = useState<TabState>(currentTab);
 
-  const sortKeywordListAlphabets = (x: any, y: any) => {
-    if (x.name < y.name) {
-      return -1;
-    }
-    if (x.name > y.name) {
-      return 1;
-    }
-    return 0;
-  };
-
-  const keywordListSorted: any = useMemo(() => {
-    let copyKeywordList = data;
-    copyKeywordList.category.sort(sortKeywordListAlphabets);
-    copyKeywordList.sectors.sort(sortKeywordListAlphabets);
-    copyKeywordList.startup.sort(sortKeywordListAlphabets);
-    return copyKeywordList;
-  }, [data]);
+  const { keywordListSorted } = useKeywordList(data);
 
   const onChangeKeywordTab = (tab: TabState) => {
     setCurrentTab(tab);
   };
+
+  useEffect(() => {
+    setListView(() => currentTab);
+  }, [currentTab]);
 
   return (
     <Wrap>
@@ -52,7 +43,7 @@ function KeywordList({ data }: any) {
         </Tab>
       </TabList>
       <KeywordListView
-        currentTab={currentTab}
+        listView={listView}
         keywordListSorted={keywordListSorted}
       />
     </Wrap>

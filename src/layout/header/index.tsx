@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Member from "./Member";
 import NonMember from "./NonMember";
 import { css } from "@emotion/react";
 import Container from "@mui/material/Container";

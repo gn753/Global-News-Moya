@@ -1,19 +1,20 @@
 import styled from "@emotion/styled";
-import { useGetNewsQuery } from "@src/features/SearchForm/hooks/useGetNewsQuery";
-
+import { useGoToNewsPage } from "@src/features/SearchForm/hooks/useGoToNewsPage";
 
 interface Props {
   children: React.ReactChildren;
-  props: {
-    paramValue: string;
-    exchange: string;
-  };
+  paramValue: string;
+  exchange?: string;
   keyType: string;
 }
 
-export default function SecotrKeywordItem({ children, props, keyType }: Props) {
-  const { getKeywordParams, setIsActive } = useGetNewsQuery();
-  const { paramValue, exchange } = props;
+export default function SecotrKeywordItem({
+  children,
+  paramValue,
+  exchange,
+  keyType,
+}: Props) {
+  const { getKeywordParams, setIsActive } = useGoToNewsPage();
 
   return (
     <div onClick={() => setIsActive(true)}>

@@ -3,16 +3,11 @@ import React from "react";
 import { css } from "@emotion/react";
 import DropDownList from "@src/features/SearchForm/components/DropDown/DropDownList";
 
-interface Props {
-  handleKeywordOpen: () => void;
-}
 
-function Searchbar({ handleKeywordOpen }: Props) {
+
+function Searchbar() {
   return (
     <>
-      <KeywordListClose>
-        <span onClick={handleKeywordOpen}>맞춤뉴스 보기</span>
-      </KeywordListClose>
       <Form>
         <DropDownList />
         <div css={styles.Input}>

@@ -1,11 +1,6 @@
 import styled from "@emotion/styled";
 
 const StyleGuide = () => {
-  const optionList = [
-    { name: "정렬순", method: console.log("test") },
-    { name: "최신순", method: console.log("test") },
-    { name: "인기순", method: console.log("test") },
-  ];
   return (
     <Style>
       <Container1240>

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import Modal from "@src/features/common/DropDown/components/Modal";
+import Modal from "@src/features/common/DropDown/Modal";
 
 const Member = () => {
   return (

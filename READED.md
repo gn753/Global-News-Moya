@@ -1,17 +1,84 @@
-<!-- 핫리로딩 -->
+# 모야 서비스 최종 개발문서
 
-https://github.com/pmmmwh/react-refresh-webpack-plugin
+1. 서비스 소개
+2. 구현기능
+3. 폴더 구조
+4. 사용 설명서
+5. 참고했던 자료
 
-웹팩 데브 서버를 쓰면 얻는 이점은 무엇인가?
-일반 리로딩과 핫 리로딩의 차이점은?
+## 0. 실행 방법
 
-1. 리로딩은 새로고침
-2. 핫 리로딩은 기존 데이터 유지하되 변경된 데이터만 바꿔줌. 즉 리로딩이 돼도 데이터가 안날아감
-3. 근데 React cra때 데이터 날아간거 본적이 없는데?
-4. 아마 내 생각에 CRA에는 기본으로 핫리로딩이 탑재되어 있을 것으로 추측됨.
+```
+npm start
+```
 
-Require는 node의 모듈시스템
+## **1. 서비스 소개**
 
-<!-- 타입스크립트 문제  참조-->
+> 글로벌 검색 엔진 서비스
 
-https://github.com/contentful/contentful-management.js/issues/848
+해외 상장 기업 뉴스를 한글로 볼 수 있습니다. 실시간 수집한 해외 뉴스를 WiseTranslate의 경제 뉴스 AI번역 기술로 한글로 제공합니다.
+
+## 2**. 구현한 기능**
+
+### 2.**1 로그인 쿠키 받아오기**
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e2927c8f-daa5-**437d**-8f50-74b614de3167/%EC%BA%A1%EC%B2%98.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e2927c8f-daa5-**437d**-8f50-74b614de3167/%EC%BA%A1%EC%B2%98.png)
+
+- 로그인: 서버로부터 키워드 리스트 제공 받기 위해 세션쿠키 필요.
+- 아이디 : aa, 비밀번호:aa
+
+### **2.2. 뉴스 키워드 리스트와 필터링 옵션 제공**
+
+![키워드 및 옵션.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9983b9a4-6313-4499-a06f-1ffd00d6a8af/키워드_및_옵션.gif)
+
+- 주식 투자자들의 관심을 가질만한 500개 이상의 뉴스 키워드 제공.
+- 3개의 키워드 카테고리 제공.
+- 뉴스 필터링 옵션은 총 4개를 제공.
+- 단 언어 필터링은 현재 서버측에서 영어만 지원.
+- 해당 키워드를 클릭하면 구독된 페이지로 이동.
+
+### **2.3. 뉴스 키워드 리스트와 필터링 옵션 제공**
+
+- 무한스크롤
+- 언어 번역 기능
+- 뉴스카드 포맷 교체
+
+### **2.3. 뉴스 키워드 리스트와 필터링 옵션 제공**
+
+- 정렬 필터링.
+
+## **2. 기술 스택과 채택이유**
+
+### [React-Query]
+
+- 기존에는 Redux를 사용했으나 검색페이지 구현 문제.
+- 검색페이지에서는 같은 Query와 EndPoint 요청이면 다음 페이지 아니라면 새 페이지 출력 목표.
+- React-quey의 Query key 의존성 배열로 요청 구분 개선.
+- 또한 리덕스에서 문제였던 무한스크롤 중복요청과 캐싱으로 최적화 개선.
+
+### [Recoil]
+
+- 검색 폼의 Select 옵션 파라미터를 여러 컴포넌트에 동일한 상태로 전달하고자 목표.
+- custom hook으로는 형제 컴포넌트에 데이터 전달이 어려워 전역상태로 단일한 값을 가지도록 개선.
+- Redux에 비해 낮은 러닝커브와 코드 작성량.
+
+기타 기술 스택
+
+- webpack
+- Typescript
+- emotion, react-router, ui-material
+
+## 3 폴더 구조
+
+![Cap 2022-05-19 03-24-47-025.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7ae55bd6-4bc1-44ba-a840-57f0bb6de3ad/Cap_2022-05-19_03-24-47-025.png)
+
+- 폴더구조는 크게 기능과 페이지 레이아웃으로 나누었습니다.
+- 기능에는 루트 index와 해당 데이터에 의존성이 있는 자식컴포넌트와 폴더 내
+  Hook과 util이 존재합니다.
+- 여러 폴더를 이동하지 않고 수정사항을 반영할 수 있도록 작업 효율성을 높였습니다.
+- 덕분에 에러가 났을 때마다 빠른 수정사항 반영이 가능해 원활한 작업이 이루어졌습니다.
+
+## 참고했던 자료
+
+- **지역성의 원칙을 고려한 패키지 구조: 기능별로 나누기** [https://ahnheejong.name/articles/package-structure-with-the-principal-of-locality-in-mind/](https://ahnheejong.name/articles/package-structure-with-the-principal-of-locality-in-mind/)
+- 토스 토스ㅣSLASH 21 - 실무에서 바로 쓰는 Frontend Clean Code [https://toss.im/slash-21/sessions/3-3](https://toss.im/slash-21/sessions/3-3)

@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { useInfinityScrollQuery } from "@src/features/NewsList/hooks/useInfinityScrollQuery";
+import { useFetchInfinityScroll } from "@src/features/NewsList/hooks/useFetchInfinityScroll";
 import { css } from "@emotion/react";
 import { useSearchParams } from "react-router-dom";
-import Spinner from "@src/features/Spinner";
+import Spinner from "@src/features/common/Spinner";
 import NewsListFilter from "@src/features/NewsList/components/NewsListFilter";
 import Container from "@material-ui/core/Container";
 import TextCardList from "@src/features/NewsList/components/TextCardList";
@@ -11,7 +11,7 @@ import ImageCardList from "@src/features/NewsList/components/ImageCardList";
 
 export default function NewsList() {
   const [isView, setIsView] = useState<boolean>(true);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const keyType = searchParams.get("keyType");
   const paramValue = searchParams.get("paramValue");
@@ -19,33 +19,26 @@ export default function NewsList() {
   const languages = searchParams.get("languages");
   const timeFilter = searchParams.get("timeFilter");
   const orderBy = searchParams.get("orderBy");
-  const exchange: any = searchParams.get("orderBy");
+  const exchange: string | null | undefined =
+    searchParams.get("exchange") || "";
 
-  const {
-    data,
-    ref,
-    isLoading,
-    isSuccess,
-    status,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useInfinityScrollQuery({
-    keyType,
-    paramValue,
-    mediaType,
-    languages,
-    timeFilter,
-    orderBy,
-    exchange,
-  });
-  console.log(hasNextPage, "hasNextPage");
+  const { data, ref, status, hasNextPage, isFetchingNextPage,isSuccess } =
+    useFetchInfinityScroll({
+      keyType,
+      paramValue,
+      mediaType,
+      languages,
+      timeFilter,
+      orderBy,
+      exchange,
+    });
   const handleImageCardListView = () => {
     setIsView(true);
   };
   const handleTextCardListView = () => {
     setIsView(false);
   };
-  console.log(data, "타입확인");
+
   return (
     <Container maxWidth="lg">
       <div css={styles.wrap}>
@@ -60,8 +53,8 @@ export default function NewsList() {
             <span>Error</span>
           ) : (
             <>
-              {isView && data && <ImageCardList data={data} />}
-              {!isView && data && <TextCardList data={data} />}
+              {isView && isSuccess && <ImageCardList data={data} />}
+              {!isView && isSuccess && <TextCardList data={data} />}
             </>
           )}
         </div>
@@ -72,7 +65,7 @@ export default function NewsList() {
           ) : hasNextPage ? (
             <LoadMore ref={ref}>"Load Newer"</LoadMore>
           ) : (
-            "Nothing more to load"
+            "더 이상 페이지가 존재하지 않습니다."
           )}
         </div>
       </div>

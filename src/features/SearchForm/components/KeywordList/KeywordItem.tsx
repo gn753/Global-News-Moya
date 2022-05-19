@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useGetNewsQuery } from "@src/features/SearchForm/hooks/useGetNewsQuery";
+import { useGoToNewsPage } from "@src/features/SearchForm/hooks/useGoToNewsPage";
 
 interface Props {
   children: React.ReactChild;
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function KeywordItem({ children, params, keyType }: Props) {
-  const { getKeywordParams, setIsActive } = useGetNewsQuery();
+  const { getKeywordParams, setIsActive } = useGoToNewsPage();
   const { paramValue, exchange } = params;
 
   return (

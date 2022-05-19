@@ -9,7 +9,6 @@ export default function TypeAhead() {
     for (const [key, value] of Object.entries(dummyData)) {
       if (key !== "sectors") {
         if (key !== "category") {
-          console.log(key);
           Arr.push(value);
         }
       }
