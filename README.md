@@ -3,8 +3,7 @@
 1. 서비스 소개
 2. 구현기능
 3. 폴더 구조
-4. 사용 설명서
-5. 참고했던 자료
+4. 참고했던 자료
 
 ## 0. 실행 방법
 
@@ -81,7 +80,7 @@ npm start
 - 여러 폴더를 이동하지 않고 수정사항을 반영할 수 있도록 작업 효율성을 높였습니다.
 - 덕분에 에러가 났을 때마다 빠른 수정사항 반영이 가능해 원활한 작업이 이루어졌습니다.
 
-## 참고했던 자료
+## 4 참고했던 자료
 
 - **지역성의 원칙을 고려한 패키지 구조: 기능별로 나누기** [https://ahnheejong.name/articles/package-structure-with-the-principal-of-locality-in-mind/](https://ahnheejong.name/articles/package-structure-with-the-principal-of-locality-in-mind/)
 - 토스 토스ㅣSLASH 21 - 실무에서 바로 쓰는 Frontend Clean Code [https://toss.im/slash-21/sessions/3-3](https://toss.im/slash-21/sessions/3-3)
