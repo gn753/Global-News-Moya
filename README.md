@@ -22,14 +22,16 @@ npm start
 
 ### 2.**1 로그인 쿠키 받아오기**
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e2927c8f-daa5-**437d**-8f50-74b614de3167/%EC%BA%A1%EC%B2%98.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e2927c8f-daa5-**437d**-8f50-74b614de3167/%EC%BA%A1%EC%B2%98.png)
+![로그인](https://user-images.githubusercontent.com/71584114/169321283-439c35a7-64da-4bb6-9011-77f9a3c918ed.gif)
+
 
 - 로그인: 서버로부터 키워드 리스트 제공 받기 위해 세션쿠키 필요.
 - 아이디 : aa, 비밀번호:aa
 
 ### **2.2. 뉴스 키워드 리스트와 필터링 옵션 제공**
 
-![키워드 및 옵션.gif](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9983b9a4-6313-4499-a06f-1ffd00d6a8af/키워드_및_옵션.gif)
+![키워드 및 옵션](https://user-images.githubusercontent.com/71584114/169321379-780dda8e-8c78-40df-9164-b698089a4bf5.gif)
+
 
 - 주식 투자자들의 관심을 가질만한 500개 이상의 뉴스 키워드 제공.
 - 3개의 키워드 카테고리 제공.
@@ -37,13 +39,15 @@ npm start
 - 단 언어 필터링은 현재 서버측에서 영어만 지원.
 - 해당 키워드를 클릭하면 구독된 페이지로 이동.
 
-### **2.3. 뉴스 키워드 리스트와 필터링 옵션 제공**
+### **2.3. 검색 결과 페이지 무한 스크롤링**
+![무한스크롤 및 옵션](https://user-images.githubusercontent.com/71584114/169321552-c25b0534-4a4b-4807-89d1-686b22aff480.gif)
 
 - 무한스크롤
 - 언어 번역 기능
 - 뉴스카드 포맷 교체
 
-### **2.3. 뉴스 키워드 리스트와 필터링 옵션 제공**
+### **2.4. 검색된 뉴스 필터링 옵션 제공**
+![정렬 필터](https://user-images.githubusercontent.com/71584114/169321590-626eec07-a123-4eb9-b6e0-fedfd564eccb.gif)
 
 - 정렬 필터링.
 
@@ -69,8 +73,7 @@ npm start
 - emotion, react-router, ui-material
 
 ## 3 폴더 구조
-
-![Cap 2022-05-19 03-24-47-025.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7ae55bd6-4bc1-44ba-a840-57f0bb6de3ad/Cap_2022-05-19_03-24-47-025.png)
+![Cap 2022-05-19 03-24-47-025](https://user-images.githubusercontent.com/71584114/169322093-689d22db-d9dc-4eee-8c36-22eb03b7ae8b.png)
 
 - 폴더구조는 크게 기능과 페이지 레이아웃으로 나누었습니다.
 - 기능에는 루트 index와 해당 데이터에 의존성이 있는 자식컴포넌트와 폴더 내
