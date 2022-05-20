@@ -2,8 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import { css } from "@emotion/react";
 import DropDownList from "@src/features/SearchForm/components/DropDown/DropDownList";
-
-
+import TypeAhead from "@src/features/SearchForm/components/TypeAhead";
 
 function Searchbar() {
   return (
@@ -11,8 +10,17 @@ function Searchbar() {
       <Form>
         <DropDownList />
         <div css={styles.Input}>
-          <i className="search-icon">검색 아이콘</i>
-          <input placeholder="AutoComplete기능은 개발중" />
+          <TypeAhead />
+          <i
+            className="search-icon"
+            onClick={() =>
+              alert(
+                "현재 시스메틱측 보안이슈및 점검으로 지원되는 검색 카테고리는 맞춤뉴스만 가능합니다."
+              )
+            }
+          >
+            검색 아이콘
+          </i>
         </div>
       </Form>
     </>
@@ -36,6 +44,7 @@ const styles = {
     border-right: 1px solid #c4c4c4;
   `,
   Input: css`
+    position: relative;
     display: flex;
     align-items: center;
     max-width: 350px;
@@ -50,6 +59,7 @@ const styles = {
       margin-right: 10px;
       font-size: 0;
       background-position: 50%;
+      cursor: pointer;
     }
     input {
       display: block;
@@ -61,32 +71,6 @@ const styles = {
   `,
 };
 
-const KeywordListClose = styled.div`
-  position: relative;
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 10px;
-  span {
-    padding: 0px 12px;
-    border: 1px solid #707070;
-    border-radius: 2px;
-    display: inline-flex;
-    align-items: center;
-    height: 34px;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 16px;
-    cursor: pointer;
-    color: #707070;
-    transition: 0.3s;
-    &:hover {
-      background-color: #fff;
-    }
-  }
-`;
 const Form = styled.section`
   display: flex;
   border-radius: 5px;

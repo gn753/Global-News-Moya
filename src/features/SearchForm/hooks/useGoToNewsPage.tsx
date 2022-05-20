@@ -25,27 +25,28 @@ export const useGoToNewsPage = () => {
   const navigate = useNavigate();
   //미디어 타입 가져오기
   // 받은 Query, parameter로 해당 page 이동
-  const getKeywordParams = ({ keyType, paramValue }: State) => {
+  const getKeywordParams = ({ keyType, paramValue, exchange }: State) => {
     setKeywordQuery({
       keyType,
       paramValue,
+      exchange,
     });
   };
 
   useEffect(() => {
     if (isActive) {
+      console.log(keywordQuery, "키워드쿼리");
       const id = createSearchParams({
         ...keywordQuery,
         ...params,
       });
-      const movePage= setTimeout(() => {
+      const movePage = setTimeout(() => {
         navigate(`/news?${id}`);
-       
       }, 1000);
-      const closeKeywordList =setTimeout(()=>{
+      const closeKeywordList = setTimeout(() => {
         setisOpen(false);
-      },1000)
-      Promise.all([movePage,closeKeywordList])
+      }, 1000);
+      Promise.all([movePage, closeKeywordList]);
     }
 
     return () => {

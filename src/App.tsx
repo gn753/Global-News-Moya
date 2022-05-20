@@ -12,6 +12,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import StyleGuide from "@src/pages/StyleGuide";
 import "./styles/variable.css";
 import "./styles/font.css";
+import TypeAhead from "@src/features/SearchForm/components/TypeAhead";
 
 const App = () => {
   return (
@@ -25,7 +26,6 @@ const App = () => {
             <Route path=":id" element={<NewsPage />} />
           </Route>
           <Route path="/style" element={<StyleGuide />} />
-          <Route path="/card" element={<Example />} />
         </Routes>
       </Layout>
     </BrowserRouter>
