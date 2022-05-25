@@ -17,6 +17,10 @@ npm start
 
 해외 상장 기업 뉴스를 한글로 볼 수 있습니다. 실시간 수집한 해외 뉴스를 WiseTranslate의 경제 뉴스 AI번역 기술로 한글로 제공합니다.
 
+## Style-Guide
+![스타일가이드](https://user-images.githubusercontent.com/71584114/170329399-73d2279b-3b5b-4f15-9716-b0b8313394dc.PNG)
+
+
 ## 2**. 구현한 기능**
 
 ### 2.**1 로그인 쿠키 받아오기**
