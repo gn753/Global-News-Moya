@@ -11,16 +11,6 @@ function Searchbar() {
         <DropDownList />
         <div css={styles.Input}>
           <TypeAhead />
-          <i
-            className="search-icon"
-            onClick={() =>
-              alert(
-                "현재 시스메틱측 보안이슈및 점검으로 지원되는 검색 카테고리는 맞춤뉴스만 가능합니다."
-              )
-            }
-          >
-            검색 아이콘
-          </i>
         </div>
       </Form>
     </>
@@ -47,7 +37,6 @@ const styles = {
     position: relative;
     display: flex;
     align-items: center;
-    max-width: 350px;
     width: 100%;
     max-height: 120px;
     .search-icon {
@@ -60,13 +49,6 @@ const styles = {
       font-size: 0;
       background-position: 50%;
       cursor: pointer;
-    }
-    input {
-      display: block;
-      width: 100%;
-      height: 25px;
-      margin: auto 0;
-      border: none;
     }
   `,
 };

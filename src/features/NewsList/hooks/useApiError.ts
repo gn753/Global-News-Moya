@@ -4,7 +4,7 @@ export const useApiError = () => {
   const errorHandler = (error: any) => {
     let message = "";
     if (error == "Request failed with status code 500") {
-      message = "해당 키워드는 현재 서버 내부에서 지원하고 있지 않습니다.";
+      message = "현재 데이터가 존재하지 않습니다.";
     } else if (error === "Request failed with status code 400") {
       message = "로그인 쿠키가 만료된상황입니다. 다시 로그인해주세요";
     }

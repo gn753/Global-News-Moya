@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import {
   categoriesParameters,
   timeFiltereParameters,
@@ -6,26 +5,15 @@ import {
   orderByParameters,
 } from "@src/features/SearchForm/util/searchPrameterData";
 import { css } from "@emotion/react";
-import { atom, useRecoilState } from "recoil";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useRecoilState } from "recoil";
+import { SelectChangeEvent } from "@mui/material/Select";
 import Grid from "@mui/material/Grid";
+import SelectList from "@src/features/common/DropDown/SelectList";
+import { searchParameterAtom } from "@src/features/SearchForm/atoms/searchParameterAtom";
 
-export const searchParamsState = atom({
-  key: "searchParamsState",
-  default: {
-    mediaType: "mp.op",
-    languages: "en",
-    timeFilter: "mth1",
-    orderBy: "top",
-  },
-});
 
 export default function DropDownList() {
-  const [params, setParams] = useRecoilState(searchParamsState);
+  const [params, setParams] = useRecoilState(searchParameterAtom);
 
   const getMediaytype = (event: SelectChangeEvent) => {
     setParams({ ...params, mediaType: event.target.value });
@@ -44,114 +32,45 @@ export default function DropDownList() {
   return (
     <Grid css={styles.wrap} container spacing={1}>
       <Grid item xs={3}>
-        <FormControl>
-          <InputLabel id="demo-simple-select-label">언론사</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={params.mediaType}
-            label="언론사"
-            onChange={getMediaytype}
-          >
-            {categoriesParameters.map((category, index: number) => {
-              return (
-                <MenuItem
-                  value={category.parameter}
-                  key={`{index}-${category.name}`}
-                >
-                  {category.name}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
+        <SelectList
+          naming={"언론사"}
+          defaultValue={params.mediaType}
+          getValueChange={getMediaytype}
+          dropList={categoriesParameters}
+        />
       </Grid>
       <Grid item xs={3}>
-        {" "}
-        <FormControl>
-          <InputLabel id="demo-simple-select-label">발행일</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={params.timeFilter}
-            label="언어"
-            onChange={getTimeFilter}
-          >
-            {timeFiltereParameters.map((timeFilter) => {
-              return (
-                <MenuItem
-                  value={timeFilter.parameter}
-                  key={`{index}-${timeFilter.name}`}
-                >
-                  {timeFilter.name}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
+        <SelectList
+          naming={"발행일"}
+          defaultValue={params.timeFilter}
+          getValueChange={getTimeFilter}
+          dropList={timeFiltereParameters}
+        />
       </Grid>
       <Grid item xs={3}>
-        <FormControl>
-          <InputLabel id="demo-simple-select-label">언어</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={params.languages}
-            label="언어"
-            onChange={getlanguages}
-          >
-            {languageParameters.map((languages) => {
-              return (
-                <MenuItem
-                  value={languages.parameter}
-                  key={`{index}-${languages.name}`}
-                >
-                  {languages.name}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
+        <SelectList
+          naming={"언어"}
+          defaultValue={params.languages}
+          getValueChange={getlanguages}
+          dropList={languageParameters}
+        />
       </Grid>
       <Grid item xs={3}>
-        {" "}
-        <FormControl>
-          <InputLabel id="demo-simple-select-label">정렬</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={params.orderBy}
-            label="정렬"
-            onChange={getOrderBy}
-          >
-            {orderByParameters.map((orderBy) => {
-              return (
-                <MenuItem
-                  value={orderBy.parameter}
-                  key={`{index}-${orderBy.name}`}
-                >
-                  {orderBy.name}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
+        <SelectList
+          naming={"정렬"}
+          defaultValue={params.orderBy}
+          getValueChange={getOrderBy}
+          dropList={orderByParameters}
+        />
       </Grid>
     </Grid>
   );
 }
 
-const DropContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  gap: 0 10px;
-  box-shadow: 0px 1px 7px rgba(196, 195, 195, 0.25);
-`;
-
 const styles = {
   wrap: css`
-    width: 750px;
+    max-width: 720px;
+    width: 100%;
     height: 120px;
     align-items: center;
     margin-left: 10px;
@@ -159,10 +78,15 @@ const styles = {
     & > div > {
       width: 100%;
     }
-    .MuiGrid-item {
-      .MuiFormControl-root {
-        width: 100%;
-      }
+  `,
+  select: css`
+    .MuiOutlinedInput-notchedOutline {
+      border: none;
+      border-radius: 0;
+    }
+    .MuiSvgIcon-root {
+      right: 22px;
+      top: 22px;
     }
   `,
 };

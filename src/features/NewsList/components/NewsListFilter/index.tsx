@@ -4,12 +4,10 @@ import { css } from "@emotion/react";
 import { orderByParameters } from "@src/features/SearchForm/util/searchPrameterData";
 import { useSearchParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { searchParamsState } from "@src/features/SearchForm/components/DropDown/DropDownList";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { searchParameterAtom } from "@src/features/SearchForm/atoms/searchParameterAtom";
+import { SelectChangeEvent } from "@mui/material/Select";
 import { Container } from "@mui/material";
+import SelectList from "@src/features/common/DropDown/SelectList";
 
 interface Props {
   handleImageCardListView: () => void;
@@ -21,7 +19,7 @@ export default function NewsListFilter({
   handleTextCardListView,
 }: Props) {
   const [isActive, setIsActive] = useState<boolean>(true);
-  const [params, setParams] = useRecoilState(searchParamsState);
+  const [params, setParams] = useRecoilState(searchParameterAtom);
   const [searchQuery, setSearchQuery] = useSearchParams({
     keyType: "",
     paramValue: "",
@@ -48,27 +46,12 @@ export default function NewsListFilter({
     <section css={styles.wrap} id="snb" role="navigation">
       <Container maxWidth="lg">
         <div css={styles.filterOptions}>
-          <FormControl css={styles.dropbox}>
-            <InputLabel id="demo-simple-select-label">정렬</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={params.orderBy}
-              label="정렬"
-              onChange={updateOrderBy}
-            >
-              {orderByParameters.map((orderBy) => {
-                return (
-                  <MenuItem
-                    value={orderBy.parameter}
-                    key={`{index}-${orderBy.name}`}
-                  >
-                    {orderBy.name}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </FormControl>
+          <SelectList
+            naming={"정렬"}
+            defaultValue={params.orderBy}
+            getValueChange={updateOrderBy}
+            dropList={orderByParameters}
+          />
           <ShowImageCard role="button" onClick={handleImageCardListView}>
             <HambugerIcon
               onClick={() => setIsActive(true)}
@@ -97,11 +80,6 @@ const styles = {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-  `,
-  dropbox: css`
-    width: 160px;
-    height: 40px;
-    margin-bottom: 10px;
   `,
   filterOptions: css`
     display: flex;
@@ -133,7 +111,6 @@ const styles = {
     background-color: transparent;
   `,
 };
-// color: ${({ theme }) => theme.subTitle};
 
 type CssProps = {
   iconActive: boolean;

@@ -63,6 +63,7 @@ const config: webpack.Configuration = {
               },
               "@emotion/babel-plugin",
             ],
+            ["react-refresh/babel"],
           ],
         },
         exclude: ["/node_modules"],

@@ -4,16 +4,13 @@ import KeywordList from "@src/features/SearchForm/components/KeywordList";
 import Searchbar from "@src/features/SearchForm/components/Searchbar";
 import Container from "@material-ui/core/Container";
 import styled from "@emotion/styled";
-import { atom, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
+import { openKeywordListAtom } from "@src/features/SearchForm/atoms/openKeywordListAtom";
 
-export const openKeywordListState = atom({
-  key: "openKeywordListState",
-  default: false,
-});
 
 export default function SearchForm() {
   const { data } = useFetchSearchKeywordList();
-  const [isOpen, setIsOpen] = useRecoilState<boolean>(openKeywordListState);
+  const [isOpen, setIsOpen] = useRecoilState<boolean>(openKeywordListAtom);
 
   const keywordList = useMemo(() => {
     return data;

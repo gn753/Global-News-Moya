@@ -1,9 +1,10 @@
-import { searchParamsState } from "@src/features/SearchForm/components/DropDown/DropDownList";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { createSearchParams } from "react-router-dom";
-import { openKeywordListState } from "@src/features/SearchForm";
+import { openKeywordListAtom } from "@src/features/SearchForm/atoms/openKeywordListAtom";
+import { searchParameterAtom } from "@src/features/SearchForm/atoms/searchParameterAtom";
+
 
 interface State {
   keyType: string | null | undefined;
@@ -20,8 +21,8 @@ export const useGoToNewsPage = () => {
   });
 
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [params] = useRecoilState(searchParamsState);
-  const [isOpen, setisOpen] = useRecoilState(openKeywordListState);
+  const [params] = useRecoilState( searchParameterAtom);
+  const [isOpen, setisOpen] = useRecoilState(openKeywordListAtom);
   const navigate = useNavigate();
   //미디어 타입 가져오기
   // 받은 Query, parameter로 해당 page 이동

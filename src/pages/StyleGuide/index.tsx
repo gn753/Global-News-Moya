@@ -1,6 +1,29 @@
 import styled from "@emotion/styled";
+import SelectList from "@src/features/common/DropDown/SelectList";
+import { useRecoilState } from "recoil";
+import { SelectChangeEvent } from "@mui/material/Select";
+import { searchParameterAtom } from "@src/features/SearchForm/atoms/searchParameterAtom";
+import BookMarkIcon from "@src/features/common/Icon/bookmark/BookMarkIcon";
+import ShareIcon from "@src/features/common/Icon/share";
+import GridIcon from "@src/features/common/Icon/grid";
+import HamburIcon from "@src/features/common/Icon/hamburger";
 
 const StyleGuide = () => {
+  const [params, setParams] = useRecoilState(searchParameterAtom);
+  const TestDropList = [
+    {
+      name: "All",
+      parameter: "mp.op",
+    },
+    {
+      name: "Major",
+      parameter: "mp",
+    },
+  ];
+
+  const getMediaytype = (event: SelectChangeEvent) => {
+    setParams({ ...params, mediaType: event.target.value });
+  };
   return (
     <Style>
       <Container1240>
@@ -36,7 +59,6 @@ const StyleGuide = () => {
           <p className="h2">H2/ Noto sans/ Display SemiBold/ 22px</p>
           <p className="h3">H3/ Noto sans/ Display semiBold/ 20px</p>
           <p className="h4">
-            {" "}
             Subtitle 1/ Noto sans/ Display Bold/ 16px/ leading 36
           </p>
           <h5 className="h5">Subtitle 2/ Noto sans/ Display SemiBold/ 16px</h5>
@@ -52,6 +74,24 @@ const StyleGuide = () => {
           <p className="button-2">Button 2/ Noto sans/ Display Regular/ 16px</p>
         </Typography>
       </Container1240>
+      <UiComponent>
+        <p className="title">Drop</p>
+        <Drop>
+          <SelectList
+            naming={"신문사"}
+            defaultValue={params.mediaType}
+            getValueChange={getMediaytype}
+            dropList={TestDropList}
+          />
+        </Drop>
+        <p className="title">Icon</p>
+        <Icon>
+          <BookMarkIcon />
+          <ShareIcon />
+          <GridIcon />
+          <HamburIcon />
+        </Icon>
+      </UiComponent>
     </Style>
   );
 };
@@ -97,6 +137,12 @@ const Container1240 = styled.div`
   margin-left: auto;
 `;
 
+const Drop = styled.div`
+  display: flex;
+`;
+const Icon = styled.div`
+  display: flex;
+`;
 const ColorPalette = styled.section`
   display: flex;
   flex-wrap: wrap;
