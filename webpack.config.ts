@@ -3,10 +3,11 @@ import * as path from "path";
 import * as webpack from "webpack";
 import "webpack-dev-server";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"; //핫리로딩
+const isDevelopment = process.env.NODE_ENV !== "production";
 // in case you run into any typescript error when configuring `devServer`
 const config: webpack.Configuration = {
   name: "moya",
-  mode: "development",
+  mode: isDevelopment ? "development" : "production",
   devtool: "inline-source-map",
   entry: "./src/index.tsx",
   output: {
@@ -63,7 +64,9 @@ const config: webpack.Configuration = {
               },
               "@emotion/babel-plugin",
             ],
-            ["react-refresh/babel"],
+            [isDevelopment && require.resolve("react-refresh/babel")].filter(
+              Boolean
+            ),
           ],
         },
         exclude: ["/node_modules"],
@@ -74,7 +77,7 @@ const config: webpack.Configuration = {
       },
     ],
   },
-  plugins: [new ReactRefreshWebpackPlugin()],
+  plugins: [isDevelopment && new ReactRefreshWebpackPlugin()].filter(Boolean),
 
   devServer: {
     static: {
