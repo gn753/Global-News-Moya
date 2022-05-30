@@ -19,7 +19,7 @@ npm start
 
 ## Style-Guide
 ![스타일가이드](https://user-images.githubusercontent.com/71584114/170329399-73d2279b-3b5b-4f15-9716-b0b8313394dc.PNG)
-
+- 일관된 스타일링을 위해 페이지 내에 마크업으로 공통 가이드 제작.
 
 ## 2**. 구현한 기능**
 
