@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import { changeUnixTmeToStandard } from "@src/features/common/util/moment/changeUnixTmeToStandard";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import BookMarkIcon from "@src/features/common/Icon/bookmark/BookMarkIcon";
 import ShareIcon from "@src/features/common/Icon/share";
 import { useFetchTranslate } from "@src/features/NewsList/hooks/useFetchTranslate";

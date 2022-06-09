@@ -22,7 +22,7 @@ export default function NewsList() {
   const exchange: string | null | undefined =
     searchParams.get("exchange") || "";
 
-  const { data, ref, status, hasNextPage, isFetchingNextPage,isSuccess } =
+  const { data, ref, status, hasNextPage, isFetchingNextPage, isSuccess } =
     useFetchInfinityScroll({
       keyType,
       paramValue,
@@ -62,10 +62,8 @@ export default function NewsList() {
         <div>
           {isFetchingNextPage ? (
             <Spinner />
-          ) : hasNextPage ? (
-            <LoadMore ref={ref}>"Load Newer"</LoadMore>
           ) : (
-            "더 이상 페이지가 존재하지 않습니다."
+            hasNextPage && <LoadMore ref={ref}>"Load Newer"</LoadMore>
           )}
         </div>
       </div>

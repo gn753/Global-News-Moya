@@ -63,6 +63,7 @@ export const useFetchInfinityScroll = ({
     return resopnse;
   };
   const { errorHandler } = useApiError();
+  
   const {
     data,
     error,

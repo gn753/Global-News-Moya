@@ -9,9 +9,7 @@ function Searchbar() {
     <>
       <Form>
         <DropDownList />
-        <div css={styles.Input}>
-          <TypeAhead />
-        </div>
+        <TypeAhead />
       </Form>
     </>
   );
@@ -32,24 +30,6 @@ const styles = {
     padding-left: 20px;
     padding-right: 20px;
     border-right: 1px solid #c4c4c4;
-  `,
-  Input: css`
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-height: 120px;
-    .search-icon {
-      display: block;
-      width: 40px;
-      height: 40px;
-      background: url("/images/search.svg");
-      background-repeat: no-repeat;
-      margin-right: 10px;
-      font-size: 0;
-      background-position: 50%;
-      cursor: pointer;
-    }
   `,
 };
 

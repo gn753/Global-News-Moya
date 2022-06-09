@@ -1,4 +1,3 @@
-import React from "react";
 import ImageCard from "@src/features/NewsList/components/ImageCardList/ImageCard";
 import Masonry from "@mui/lab/Masonry";
 
@@ -20,4 +19,4 @@ function ImageCardList({ data }: any) {
     </>
   );
 }
-export default React.memo(ImageCardList);
+export default ImageCardList;

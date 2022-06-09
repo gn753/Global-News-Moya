@@ -7,7 +7,6 @@ import styled from "@emotion/styled";
 import { useRecoilState } from "recoil";
 import { openKeywordListAtom } from "@src/features/SearchForm/atoms/openKeywordListAtom";
 
-
 export default function SearchForm() {
   const { data } = useFetchSearchKeywordList();
   const [isOpen, setIsOpen] = useRecoilState<boolean>(openKeywordListAtom);
@@ -19,9 +18,11 @@ export default function SearchForm() {
   return (
     <Section>
       <Container maxWidth="lg">
-        <KeywordListClose>
-          <span onClick={() => setIsOpen(!isOpen)}>맞춤뉴스 보기</span>
-        </KeywordListClose>
+        <ViewCustomizedNews>
+          <span role="button" onClick={() => setIsOpen(!isOpen)}>
+            맞춤뉴스 보기
+          </span>
+        </ViewCustomizedNews>
         <Searchbar />
         {isOpen && keywordList && <KeywordList data={keywordList} />}
       </Container>
@@ -32,7 +33,7 @@ export default function SearchForm() {
 const Section = styled.section`
   position: relative;
 `;
-const KeywordListClose = styled.div`
+const ViewCustomizedNews = styled.div`
   position: relative;
   display: flex;
   width: 100%;

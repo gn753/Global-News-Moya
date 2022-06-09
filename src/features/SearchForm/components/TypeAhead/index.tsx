@@ -67,9 +67,8 @@ export default function TypeAhead() {
     ...newEvents,
     ...newTopics,
   ];
-  var UniqKey = 0;
   return (
-    <>
+    <div css={styles.Input}>
       <Autocomplete
         onKeyPress={(e) => {
           if (e.key === "Enter") {
@@ -141,10 +140,28 @@ export default function TypeAhead() {
       >
         검색 아이콘
       </i>
-    </>
+    </div>
   );
 }
 const styles = {
+  Input: css`
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-height: 120px;
+    .search-icon {
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: url("/images/search.svg");
+      background-repeat: no-repeat;
+      margin-right: 10px;
+      font-size: 0;
+      background-position: 50%;
+      cursor: pointer;
+    }
+  `,
   wrap: css`
     position: relative !important;
     width: 519px;

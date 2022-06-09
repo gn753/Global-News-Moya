@@ -90,6 +90,7 @@ const config: webpack.Configuration = {
     proxy: {
       "/api": {
         target: "http://54.180.136.0:3000",
+        changeOrigin: true,
         pathRewrite: { "^/api": "" },
         secure: true,
       },

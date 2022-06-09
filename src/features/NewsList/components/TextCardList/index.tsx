@@ -15,4 +15,4 @@ function TextCardList({ data }: any) {
   );
 }
 
-export default React.memo(TextCardList);
+export default TextCardList;
