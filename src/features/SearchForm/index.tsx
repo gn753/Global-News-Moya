@@ -18,11 +18,11 @@ export default function SearchForm() {
   return (
     <Section>
       <Container maxWidth="lg">
-        <ViewCustomizedNews>
+        <OpenKeywordList>
           <span role="button" onClick={() => setIsOpen(!isOpen)}>
-            맞춤뉴스 보기
+            맞춤화
           </span>
-        </ViewCustomizedNews>
+        </OpenKeywordList>
         <Searchbar />
         {isOpen && keywordList && <KeywordList data={keywordList} />}
       </Container>
@@ -33,7 +33,7 @@ export default function SearchForm() {
 const Section = styled.section`
   position: relative;
 `;
-const ViewCustomizedNews = styled.div`
+const OpenKeywordList = styled.div`
   position: relative;
   display: flex;
   width: 100%;
