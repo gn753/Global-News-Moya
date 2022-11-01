@@ -94,11 +94,11 @@ React-Query를 도입해서 QueryKey라는 기능으로 검색 파라미터를 �
 <div markdown="1">
 <img src="https://velog.velcdn.com/images/gn753/post/81c2e313-df9c-47a9-bb78-aaa097cc38be/image.jpg" height="600px" width="100%">
 
-복수의 기능이 있고 여러 컴포넌트에 의존성이 있는 코드를 단일한 기능 및 네이밍 맥락에 맞게 개선했습니다. 프로젝트 회고 후 네이밍과 그 안의 코드의 일관성의 중요성을 인식했습니다. Home Container 컴포넌트안에 Search 컴포넌트의 비즈니스 로직이 존재 해 Search와 keyword 양 컴포넌트가 HomeContaner 컴포넌트에 의존성이 생겼습니다. 
+복수의 기능이 있고 여러 컴포넌트에 의존성이 있는 코드를 단일한 기능 및 네이밍 맥락에 맞게 개선했습니다.  
+프로젝트 회고 후 네이밍과 그 안의 코드의 일관성의 중요성을 느꼈습니다. Home Container 컴포넌트안에 Search 컴포넌트의 비즈니스 로직이 존재 해 Search와 keyword 양 컴포넌트가 HomeContaner 컴포넌트에 의존성이 생겼습니다. 
 
-Home안에 분명 검색바 컴포넌트가 존재하는 것은 맞지만  
-
-이로 인해 재사용성의 문제도 생겼고 Home과 Search 컴포넌트에 헷갈리는 경우도 존재했습니다. Search와 관련된 코드들만 분리 해 코드 맥락을 개선해서 유지보수가 용이해졌고 재사용성이 개선되었습니다.
+Home안에 분명 검색바 컴포넌트가 존재하는 것은 맞지만 Home에 묶여 있기에 Search 컴포넌트의 재사용성의 문제와 Home과 Search 컴포넌트에 헷갈리는 경우도 존재했습니다. 
+Search와 관련된 코드들만 분리 해 코드 맥락을 개선해서 유지보수가 용이해졌고 재사용성이 개선되었습니다.
 
 [문제]
 
