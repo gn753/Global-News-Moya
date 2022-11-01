@@ -1,9 +1,10 @@
 # 당신만의 맞춤화된 글로벌 뉴스 Moya 
 
 1. 서비스 소개
-2. 구현기능
-3. 폴더 구조
-4. 참고했던 자료
+2. 폴더 구조
+3. 문제 해결 
+4. 기능 GIF
+5. 기타 
 
 시스메틱측의 보안 문제로 6월 3일(금)요일까지만 API가 제공됩니다. 때문에 이후부터는 코드 공개는 가능하나 기능이 작동하지 않습니다!
 
@@ -19,7 +20,7 @@ npm start
 - 북마크를 통해 기사를 저장하고 자동 언어 번역기능을 제공해 세계의 투자자들을 위한 뉴스를 구독할 수 있습니다.
 
 
-## 
+## 2. 폴더 구조
 
 ### 관심사의 분리(Separation of Concerns)
 
@@ -51,7 +52,7 @@ npm start
 - 공통 레이아웃인 Header, footer로 구성되어 있습니다.
 
 
-## 문제 해결과 기여했던 점
+## 3. 문제 해결과 기여했던 점
 
 <details>
  <summary><h3>1. 페이지 이동 지연과 함수 단일한 기능으로 쪼개 개선</h3></summary>
@@ -115,13 +116,15 @@ Home안에 분명 검색바 컴포넌트가 존재하는 것은 맞지만
 
 
 
-## Style-Guide
+
+## 4. 주요 기능 GIF ** 
+ 
+
+### Style-Guide
 ![스타일가이드](https://user-images.githubusercontent.com/71584114/170329399-73d2279b-3b5b-4f15-9716-b0b8313394dc.PNG)
 - 일관된 스타일링을 위해 페이지 내에 마크업으로 공통 가이드 제작.
 
-## 2. 주요 기능 GIF **
-
-### 2.1 로그인 쿠키 받아오기**
+### 4.1 로그인 쿠키 받아오기**
 
 ![로그인](https://user-images.githubusercontent.com/71584114/169321283-439c35a7-64da-4bb6-9011-77f9a3c918ed.gif)
 
@@ -129,7 +132,7 @@ Home안에 분명 검색바 컴포넌트가 존재하는 것은 맞지만
 - 로그인: 서버로부터 키워드 리스트 제공 받기 위해 세션쿠키 필요.
 - 아이디 : aa, 비밀번호:aa
 
-### **2.2. 뉴스 키워드 리스트와 필터링 옵션 제공**
+### 4.2. 뉴스 키워드 리스트와 필터링 옵션 제공**
 
 ![키워드 및 옵션](https://user-images.githubusercontent.com/71584114/169321379-780dda8e-8c78-40df-9164-b698089a4bf5.gif)
 ![자동완성](https://user-images.githubusercontent.com/71584114/170327814-dc8a79a7-e030-4be3-8463-0c60ebb00fca.gif)
@@ -141,28 +144,30 @@ Home안에 분명 검색바 컴포넌트가 존재하는 것은 맞지만
 - 단 언어 필터링은 현재 서버측에서 영어만 지원.
 - 해당 키워드를 클릭하면 구독된 페이지로 이동.
 
-### **2.3. 검색 결과 페이지 무한 스크롤링**
+### 4.3. 검색 결과 페이지 무한 스크롤링**
 ![무한스크롤 및 옵션](https://user-images.githubusercontent.com/71584114/169321552-c25b0534-4a4b-4807-89d1-686b22aff480.gif)
 
 - 무한스크롤
 - 언어 번역 기능
 - 뉴스카드 포맷 교체
 
-### **2.4. 검색된 뉴스 필터링 옵션 제공**
+### 4.4. 검색된 뉴스 필터링 옵션 제공**
 ![정렬 필터](https://user-images.githubusercontent.com/71584114/169321590-626eec07-a123-4eb9-b6e0-fedfd564eccb.gif)
 
 - 정렬 필터링.
 
-## **2. 기술 스택과 채택이유**
 
-### [React-Query]
+
+## 기타 
+### 기술 스택과 채택이유
+##### [React-Query]
 
 - 기존에는 Redux를 사용했으나 검색페이지 구현 문제.
 - 검색페이지에서는 같은 Query와 EndPoint 요청이면 다음 페이지 아니라면 새 페이지 출력 목표.
 - React-quey의 Query key 의존성 배열로 요청 구분 개선.
 - 또한 리덕스에서 문제였던 무한스크롤 중복요청과 캐싱으로 최적화 개선.
 
-### [Recoil]
+#### [Recoil]
 
 - 검색 폼의 Select 옵션 파라미터를 여러 컴포넌트에 동일한 상태로 전달하고자 목표.
 - custom hook으로는 형제 컴포넌트에 데이터 전달이 어려워 전역상태로 단일한 값을 가지도록 개선.
@@ -175,7 +180,7 @@ Home안에 분명 검색바 컴포넌트가 존재하는 것은 맞지만
 - emotion, react-router, ui-material
 
 
-## 4 참고했던 자료
+#### 참고했던 자료
 
 - **지역성의 원칙을 고려한 패키지 구조: 기능별로 나누기** [https://ahnheejong.name/articles/package-structure-with-the-principal-of-locality-in-mind/](https://ahnheejong.name/articles/package-structure-with-the-principal-of-locality-in-mind/)
 - 토스 토스ㅣSLASH 21 - 실무에서 바로 쓰는 Frontend Clean Code [https://toss.im/slash-21/sessions/3-3](https://toss.im/slash-21/sessions/3-3)
